@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8"/>
+    <title>Metal Station</title>   
+    </head>
+
+    <body>
+        <div class="topnav">
+            <a class="active" href='/home'>Home</a>
+            <input type="text" placeholder="Search by song/artist/album..">
+            <button>Search</button>
+            <a href="/upload">Upload</a>
+        </div> <br>
+        <div class='playlist' style='overflow-y:scroll;overflow-x:scroll;overflow-x:hidden;overflow-y:hidden;'>
+              {% for song in songs %}
+                <div>Song : {{song.name}} 
+                <audio controls>
+                    <source src='' type="audio/mpeg">
+                </audio>  
+                <button onClick='' id='deleteButton'>DELETE</button><br>
+                Artist : {{song.artist}}</div><br><br>
+              {% endfor %}
+        </div>        
+    </body>
+</html>
