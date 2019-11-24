@@ -7,19 +7,23 @@
 
     <body>
         <div class="topnav">
-            <a class="active" href='/home'>Home</a>
-            <input type="text" placeholder="Search by song/artist/album..">
-            <button>Search</button>
+            <a class="active" href='/home'>Home</a>            
             <a href="/upload">Upload</a>
-        </div> <br>
+        </div>
+        <form method='POST' action='/search'>
+            <input type="text" name='search' placeholder="Search by song/artist/album..">
+            <button>Search</button>
+        </form>
+        <br>
         <div class='playlist' style='overflow-y:scroll;overflow-x:scroll;overflow-x:hidden;overflow-y:hidden;'>
               {% for song in songs %}
-                <div>Song : {{song.name}} 
+                <div><a href="/song/{{song.id}}" id='song[0]'>Song</a> : {{song.songname}} 
                 <audio controls>
-                    <source src='' type="audio/mpeg">
-                </audio>  
-                <button onClick='' id='deleteButton'>DELETE</button><br>
-                Artist : {{song.artist}}</div><br><br>
+                    <source src='{{song.resourcePath}}' type="audio/mpeg">
+                </audio>                  
+                <a href='/delete/{{song.id}}' id=''>DELETE</a><br>
+                Artist : {{song.artist}}  Album : {{song.album}}
+                </div><br><br>
               {% endfor %}
         </div>        
     </body>

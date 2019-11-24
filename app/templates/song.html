@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8"/>
+    <title>Metal Station</title>   
+    </head>
+
+    <body>
+        <div>
+            <a class="active" href='/home'>Home</a>
+        </div> <br>
+        <div>
+            <h1>Song : {{tag.title}} </h1> 
+            <audio controls>
+                <source src='{{song.resourcePath}}' type="audio/mpeg">
+            </audio>                  
+            <a href='/delete/{{song.id}}' id=''>DELETE</a>
+            <br>
+            Artist : {{tag.artist}} <br> Album : {{tag.album}}
+        </div>
+        <div>
+            <form method='POST' action='/download/{{song.id}}'>
+                <input type='submit' value='Download'>
+            </form>
+        </div>
+    </body>
+</html>
